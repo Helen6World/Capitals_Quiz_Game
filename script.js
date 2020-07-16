@@ -11,7 +11,7 @@ const questions = [
   {
     question: "Turkey",
     answers: [
-      {text: 'Lisbon', correct: false},
+      {text: 'Istanbul', correct: false},
       {text: 'Madrid', correct: false},
       {text: 'Ankara', correct: true},
       {text: 'Nicosia', correct: false}
@@ -236,6 +236,10 @@ const current_points = document.getElementById('current_points');
 const endGameContainer = document.getElementById('game_end');
 const finalScoreSpan = document.getElementById('final_score');
 const pointsBox = document.getElementById('points_box');
+const counterBox = document.getElementById('counter');
+const questionsQuantityBox = document.getElementById('questions_quantity');
+
+let counter = 0;
 
 let arr_answ = document.getElementsByClassName('btn_answer');
 let points = 0;
@@ -256,6 +260,9 @@ function count_answ() {
 let shuffledQuestions, currentQuestionIndex;
 shuffledQuestions = questions.sort(() => Math.random() - .5);
 
+let questionsQuantity = shuffledQuestions.length;
+questionsQuantityBox.textContent = questionsQuantity;
+
 startButton.addEventListener('click', startGame);
 nextButton.addEventListener('click', () => {
   currentQuestionIndex++;
@@ -263,6 +270,7 @@ nextButton.addEventListener('click', () => {
 });
 
 function startGame() {
+  document.body.classList.remove('map_background');
   current_points.textContent = points;
   startButton.classList.add('hide');
   currentQuestionIndex = 0;
@@ -276,6 +284,9 @@ function setNextQuestion() {
 }
 
 function showQuestion(question) {
+  counter++;
+  counterBox.textContent = counter;
+
   questionElement.innerText = question.question;
   question.answers.forEach(answer => {
     const button = document.createElement('button');
@@ -307,6 +318,7 @@ function resetState() {
 function selectAnswer(e) {
   const selectedButton = e.target;
   const correct = selectedButton.dataset.correct;
+
   if (correct) {
       points += 10;
       current_points.textContent = points;
@@ -319,13 +331,16 @@ function selectAnswer(e) {
     nextButton.classList.remove('hide');
   }
   else {
+    document.body.classList.add('map_background');
     startButton.innerText = 'Restart';
     pointsBox.classList.add('hide');
-    finalScoreSpan.textContent = points + '/250';
+    finalScoreSpan.textContent = points + '/' + (shuffledQuestions.length*10);
     questionContainerElement.classList.add('hide');
     endGameContainer.classList.remove('hide');
     startButton.classList.remove('hide');
     points = 0;
+    counter = 0;
+    shuffledQuestions = questions.sort(() => Math.random() - .5);
   }
 }
 

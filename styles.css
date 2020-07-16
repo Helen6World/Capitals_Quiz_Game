@@ -26,6 +26,10 @@ body.correct {
 body.wrong {
   --hue: var(--hue-wrong);
 }
+.horizontal_position {
+  display: flex;
+  justify-content: space-between;
+}
 .quiz {
   width: 100vw;
   height: 96vh;
@@ -40,7 +44,9 @@ body.wrong {
   padding: 1%;
 }
 .container {
-  width: 800px;
+  /* width: 800px; */
+  width: 100%;
+  max-width: 50vw;
   background-color: #fff;
   border-radius: 5px;
   padding: 1vw;
@@ -51,7 +57,7 @@ body.wrong {
   display: grid;
   grid-template-columns: repeat(2, auto);
   gap: 0.5vw;
-  margin: 20px 0;
+  margin: 20px 10px;
 }
 .btn_grid > .btn {
   width: 100%;
@@ -102,4 +108,166 @@ body.wrong {
 
 #game_end {
   text-align: center;
+}
+
+.map_background {
+  background: url(map.png);
+}
+
+@media(max-width: 1700px) {
+  #points_box {
+    width: 20%;
+  }
+  .container {
+    max-width: 56vw;
+  }
+  #points_box {
+    font-size: 1vw;
+  }
+  .btn {
+    font-size: 1.15vw;
+  }
+  #question {
+    font-size: 1.15vw;
+  }
+}
+@media(max-width: 1600px) {
+  #points_box {
+    font-size: 1.15vw;
+  }
+  .btn {
+    font-size: 1.3vw;
+  }
+  #question {
+    font-size: 1.3vw;
+  }
+}
+@media(max-width: 1500px) {
+  #points_box {
+    font-size: 1.25vw;
+  }
+  .btn {
+    font-size: 1.4vw;
+  }
+  #question {
+    font-size: 1.4vw;
+  }
+}
+@media(max-width: 1400px) {
+  #points_box {
+    width: 25%;
+  }
+  .btn {
+    font-size: 1.5vw;
+  }
+  #question {
+    font-size: 1.5vw;
+  }
+}
+@media(max-width: 1300px) {
+  .container {
+    max-width: 65vw;
+  }
+  #points_box {
+    font-size: 1.35vw;
+  }
+  .btn {
+    font-size: 1.55vw;
+  }
+  #question {
+    font-size: 1.55vw;
+  }
+}
+@media(max-width: 1200px) {
+  #points_box {
+    font-size: 1.45vw;
+  }
+  .btn {
+    font-size: 1.65vw;
+  }
+  #question {
+    font-size: 1.65vw;
+  }
+  .btn_grid {
+    gap: 0.7vw;
+  }
+}
+@media(max-width: 1100px) {
+  #points_box {
+    font-size: 1.5vw;
+  }
+  .btn {
+    font-size: 1.75vw;
+  }
+  #question {
+    font-size: 1.75vw;
+  }
+}
+@media(max-width: 1000px) {
+  #points_box {
+    font-size: 1.6vw;
+  }
+  .btn {
+    font-size: 1.85vw;
+  }
+  #question {
+    font-size: 1.85vw;
+  }
+}
+@media(max-width: 900px) {
+  #points_box {
+    width: 30%;
+  }
+  .container {
+    max-width: 75vw;
+  }
+  #points_box {
+    font-size: 1.8vw;
+  }
+  .btn {
+    font-size: 2.3vw;
+  }
+  #question {
+    font-size: 2.3vw;
+  }
+}
+@media(max-width: 800px) {
+  #points_box {
+    width: 35%;
+  }
+  .container {
+    max-width: 85vw;
+  }
+  #points_box {
+    font-size: 2vw;
+  }
+  .btn {
+    font-size: 2.8vw;
+  }
+  #question {
+    font-size: 2.8vw;
+  }
+  .btn_grid {
+    gap: 1vw;
+  }
+}
+@media(max-width: 600px) {
+  #points_box {
+    width: 45%;
+  }
+  .container {
+    max-width: 95vw;
+  }
+  #points_box {
+    font-size: 2.5vw;
+  }
+  .btn {
+    font-size: 3.5vw;
+  }
+  #question {
+    font-size: 3.5vw;
+  }
+  .btn_grid {
+    gap: 1.3vw;
+  }
 }
